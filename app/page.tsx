@@ -26,7 +26,7 @@ export default async function Home({
 
 			<Container className='mt-10 pb-14'>
 				<div className='flex gap-16'>
-					<div className='w-[250px]'>
+					<div className='w-[250px] sticky top-0'>
 						<Filters />
 					</div>
 

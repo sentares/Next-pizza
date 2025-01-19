@@ -1,9 +1,10 @@
 'use client'
 
+import { Trash2, X } from 'lucide-react'
 import React from 'react'
-import { FilterChecboxProps, FilterCheckbox } from './filter-checkbox'
+import { Button, Skeleton } from '../ui'
 import { Input } from '../ui/input'
-import { Skeleton } from '../ui'
+import { FilterChecboxProps, FilterCheckbox } from './filter-checkbox'
 
 type Item = FilterChecboxProps
 
@@ -64,7 +65,26 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
 
 	return (
 		<div className={className}>
-			<p className='font-bold mb-3'>{title}</p>
+			<div className='flex items-center justify-between mb-3'>
+				<p className='font-bold'>{title}</p>
+				{selected?.size !== 0 && (
+					<div className='flex items-center gap-1'>
+						<div className='text-sm text-gray-500 flex items-center bg-secondary rounded-lg px-2 py-1 relative'>
+							<p>Выбрано:</p>
+							<span className='px-1 text-primary/70 font-semibold'>
+								{selected?.size}
+							</span>
+
+							<Button
+								variant='destructive'
+								className='p-[2px] rounded-full h-auto absolute right-[-10px] top-[-6px] hover:scale-105 transition-all'
+							>
+								<X />
+							</Button>
+						</div>
+					</div>
+				)}
+			</div>
 
 			{showAll && (
 				<div className='mb-5'>
