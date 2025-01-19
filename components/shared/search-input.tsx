@@ -40,7 +40,6 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
 		250,
 		[searchQuery]
 	)
-
 	return (
 		<>
 			{focused && (
