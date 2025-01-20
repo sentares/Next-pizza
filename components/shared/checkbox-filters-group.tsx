@@ -68,20 +68,18 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
 			<div className='flex items-center justify-between mb-3'>
 				<p className='font-bold'>{title}</p>
 				{selected?.size !== 0 && (
-					<div className='flex items-center gap-1'>
-						<div className='text-sm text-gray-500 flex items-center bg-secondary rounded-lg px-2 py-1 relative'>
-							<p>Выбрано:</p>
-							<span className='px-1 text-primary/70 font-semibold'>
-								{selected?.size}
-							</span>
+					<div className='text-sm text-gray-500 flex items-center bg-secondary rounded-lg px-2 py-0 relative'>
+						<p>Выбрано:</p>
+						<span className='px-1 text-primary/70 font-semibold'>
+							{selected?.size}
+						</span>
 
-							<Button
-								variant='destructive'
-								className='p-[2px] rounded-full h-auto absolute right-[-10px] top-[-6px] hover:scale-105 transition-all'
-							>
-								<X />
-							</Button>
-						</div>
+						<Button
+							variant='destructive'
+							className='p-[2px] rounded-full h-auto absolute right-[-10px] top-[-6px] hover:scale-105 transition-all'
+						>
+							<X />
+						</Button>
 					</div>
 				)}
 			</div>

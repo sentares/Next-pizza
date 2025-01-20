@@ -1,11 +1,10 @@
 'use client'
 
-import React from 'react'
-import { Title } from './title'
-import { cn } from '@/lib/utils'
-import { ProductCard } from './product-card'
-import { useIntersection } from 'react-use'
 import { useCategoryStore } from '@/store/category'
+import React from 'react'
+import { useIntersection } from 'react-use'
+import { ProductCard } from './product-card'
+import { Title } from './title'
 
 interface Props {
 	title: string
@@ -39,13 +38,14 @@ export const ProductsGroupList: React.FC<Props> = ({
 			<Title text={title} size='lg' className='font-extrabold mb-5' />
 
 			<div className='grid grid-cols-3 gap-[50px]'>
-				{items.map(product => (
+				{items.map((product, i) => (
 					<ProductCard
 						key={product.id}
-						imageUrl={product.imageUrl}
+						id={product.id}
 						name={product.name}
+						imageUrl={product.imageUrl}
 						price={product.items[0].price}
-						className=''
+						ingredients={product.ingredients}
 					/>
 				))}
 			</div>
