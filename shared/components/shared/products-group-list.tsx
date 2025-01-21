@@ -1,10 +1,10 @@
 'use client'
 
-import { useCategoryStore } from '@/app/store/category'
+import { useCategoryStore } from '@/app/store'
 import React from 'react'
 import { useIntersection } from 'react-use'
-import { Title } from './title'
 import { ProductCard } from './product-card'
+import { Title } from './title'
 
 interface Props {
 	title: string

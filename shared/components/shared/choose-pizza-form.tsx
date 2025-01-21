@@ -23,9 +23,6 @@ interface Props {
 	className?: string
 }
 
-/**
- * Форма выбора ПИЦЦЫ
- */
 export const ChoosePizzaForm: React.FC<Props> = ({
 	name,
 	items,
@@ -93,7 +90,6 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 								imageUrl={ingredient.imageUrl}
 								onClick={() => addIngredient(ingredient.id)}
 								active={selectedIngredients.has(ingredient.id)}
-								// className='border-primary'
 							/>
 						))}
 					</div>

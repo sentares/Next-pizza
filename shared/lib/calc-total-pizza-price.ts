@@ -12,6 +12,7 @@ import { PizzaSize, PizzaType } from '../constants/pizza'
  *
  * @returns number общую стоимость
  */
+
 export const calcTotalPizzaPrice = (
 	type: PizzaType,
 	size: PizzaSize,

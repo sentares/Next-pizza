@@ -4,6 +4,7 @@ import { Container } from './container'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SearchInput } from './search-input'
+import { CartButton } from './cart-button'
 
 interface Props {
 	className?: string
@@ -43,6 +44,7 @@ export const Header: React.FC<Props> = ({ className }) => {
 					<ProfileButton onClickSignIn={() => setOpenAuthModal(true)} />
 
 					{hasCart && <CartButton />} */}
+					<CartButton />
 				</div>
 			</Container>
 		</header>

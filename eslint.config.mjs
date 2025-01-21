@@ -20,6 +20,7 @@ const eslintConfig = [
 			'no-var': 'off',
 			'@typescript-eslint/ban-ts-comment': 'off',
 			'jsx-a11y/alt-text': 'off',
+			'react-hooks/exhaustive-deps': 'off',
 		},
 	},
 ]
