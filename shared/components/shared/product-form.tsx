@@ -3,8 +3,8 @@
 import { ProductWithRelations } from '@/@types/prisma'
 // import { useCartStore } from '@/shared/store'
 import React from 'react'
-import { ChoosePizzaForm } from './chose-pizza-form'
-import { ChooseProductForm } from './chose-product-form'
+import { ChoosePizzaForm } from './choose-pizza-form'
+import { ChooseProductForm } from './choose-product-form'
 // import toast from 'react-hot-toast'
 
 interface Props {
