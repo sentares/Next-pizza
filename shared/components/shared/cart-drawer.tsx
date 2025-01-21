@@ -20,6 +20,8 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { PizzaSize, PizzaType } from '@/shared/constants/pizza'
 import { Title } from './title'
 import { cn } from '@/shared/lib/utils'
+import { CartDrawerItem } from './cart-drawer-item'
+import { getCartItemDetails } from '@/shared/lib'
 // import { useCart } from '@/shared/hooks'
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -51,31 +53,90 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 							В корзине <span className='font-bold'>3 товара</span>
 						</SheetTitle>
 					</SheetHeader>
-				</div>
 
-				<SheetFooter className='-mx-6 bg-white p-8'>
-					<div className='w-full'>
-						<div className='flex mb-4'>
-							<span className='flex flex-1 text-lg text-neutral-500'>
-								Итого
-								<div className='flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2' />
-							</span>
-
-							<span className='font-bold text-lg'>100 ₽</span>
-						</div>
-
-						<Link href='/checkout'>
-							<Button
-								onClick={() => setRedirecting(true)}
-								type='submit'
-								className='w-full h-12 text-base'
-							>
-								Оформить заказ
-								<ArrowRight className='w-5 ml-2' />
-							</Button>
-						</Link>
+					<div className='-mx-6 mt-5 overflow-auto flex-1 space-y-2'>
+						{/* <CartDrawerItem
+							id={1}
+							imageUrl=''
+							details={getCartItemDetails([{ name: 'Сыр' }, { id: 1 }], 2, 30)}
+							name=''
+							price={0}
+							quantity={0}
+						/>
+						<CartDrawerItem
+							id={1}
+							imageUrl=''
+							details={getCartItemDetails([{ name: 'Сыр' }, { id: 1 }], 2, 30)}
+							name=''
+							price={0}
+							quantity={0}
+						/>
+						<CartDrawerItem
+							id={1}
+							imageUrl=''
+							details={getCartItemDetails([{ name: 'Сыр' }, { id: 1 }], 2, 30)}
+							name=''
+							price={0}
+							quantity={0}
+						/>
+						<CartDrawerItem
+							id={1}
+							imageUrl=''
+							details={getCartItemDetails([{ name: 'Сыр' }, { id: 1 }], 2, 30)}
+							name=''
+							price={0}
+							quantity={0}
+						/>
+						<CartDrawerItem
+							id={1}
+							imageUrl=''
+							details={getCartItemDetails([{ name: 'Сыр' }, { id: 1 }], 2, 30)}
+							name=''
+							price={0}
+							quantity={0}
+						/>
+						<CartDrawerItem
+							id={1}
+							imageUrl=''
+							details={getCartItemDetails([{ name: 'Сыр' }, { id: 1 }], 2, 30)}
+							name=''
+							price={0}
+							quantity={0}
+						/>
+						<CartDrawerItem
+							id={1}
+							imageUrl=''
+							details={getCartItemDetails([{ name: 'Сыр' }, { id: 1 }], 2, 30)}
+							name=''
+							price={0}
+							quantity={0}
+						/> */}
 					</div>
-				</SheetFooter>
+
+					<SheetFooter className='-mx-6 bg-white p-8'>
+						<div className='w-full'>
+							<div className='flex mb-4'>
+								<span className='flex flex-1 text-lg text-neutral-500'>
+									Итого
+									<div className='flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2' />
+								</span>
+
+								<span className='font-bold text-lg'>100 ₽</span>
+							</div>
+
+							<Link href='/checkout'>
+								<Button
+									onClick={() => setRedirecting(true)}
+									type='submit'
+									className='w-full h-12 text-base'
+								>
+									Оформить заказ
+									<ArrowRight className='w-5 ml-2' />
+								</Button>
+							</Link>
+						</div>
+					</SheetFooter>
+				</div>
 			</SheetContent>
 		</Sheet>
 	)
