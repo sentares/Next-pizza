@@ -1,7 +1,7 @@
 'use client'
 
-import React from 'react'
 import Image from 'next/image'
+import React from 'react'
 
 import {
 	Sheet,
@@ -12,25 +12,35 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/shared/components/ui/sheet'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '../ui'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
 // import { CartDrawerItem } from './cart-drawer-item'
 // import { getCartItemDetails } from '@/shared/lib'
+import { updateItemQuantity } from '@/app/services/cart'
+import { useCartStore } from '@/app/store'
 import { PizzaSize, PizzaType } from '@/shared/constants/pizza'
-import { Title } from './title'
+import { getCartItemDetails } from '@/shared/lib'
 import { cn } from '@/shared/lib/utils'
 import { CartDrawerItem } from './cart-drawer-item'
-import { getCartItemDetails } from '@/shared/lib'
-import { useCartStore } from '@/app/store'
+import { Title } from './title'
 // import { useCart } from '@/shared/hooks'
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
-	const { totalAmount, items, fetchCartItems } = useCartStore()
+	const { totalAmount, items, fetchCartItems, removeCartItem } = useCartStore()
 
 	React.useEffect(() => {
 		fetchCartItems()
 	}, [])
+
+	const onClickCountButton = (
+		id: number,
+		quantity: number,
+		type: 'plus' | 'minus'
+	) => {
+		const newQuantity = type === 'plus' ? quantity + 1 : quantity - 1
+		updateItemQuantity(id, newQuantity)
+	}
 
 	return (
 		<Sheet>
@@ -73,8 +83,10 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 							<SheetClose>
 								<Button className='w-56 h-12 text-base' size='lg'>
-									<ArrowLeft className='w-5 mr-2' />
-									Вернуться назад
+									<>
+										<ArrowLeft className='w-5 mr-2' />
+										Вернуться назад
+									</>
 								</Button>
 							</SheetClose>
 						</div>
@@ -97,10 +109,10 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 											name={item.name}
 											price={item.price}
 											quantity={item.quantity}
-											// onClickCountButton={type =>
-											// 	onClickCountButton(item.id, item.quantity, type)
-											// }
-											// onClickRemove={() => removeCartItem(item.id)}
+											onClickCountButton={type =>
+												onClickCountButton(item.id, item.quantity, type)
+											}
+											onClickRemove={() => removeCartItem(item.id)}
 										/>
 									</div>
 								))}
