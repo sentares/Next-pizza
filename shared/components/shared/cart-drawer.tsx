@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import React from 'react'
 
+import { updateItemQuantity } from '@/app/services/cart'
+import { useCartStore } from '@/app/store'
 import {
 	Sheet,
 	SheetClose,
@@ -12,19 +14,14 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/shared/components/ui/sheet'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
-import { Button } from '../ui'
-// import { CartDrawerItem } from './cart-drawer-item'
-// import { getCartItemDetails } from '@/shared/lib'
-import { updateItemQuantity } from '@/app/services/cart'
-import { useCartStore } from '@/app/store'
 import { PizzaSize, PizzaType } from '@/shared/constants/pizza'
 import { getCartItemDetails } from '@/shared/lib'
 import { cn } from '@/shared/lib/utils'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from '../ui'
 import { CartDrawerItem } from './cart-drawer-item'
 import { Title } from './title'
-// import { useCart } from '@/shared/hooks'
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 	const { totalAmount, items, fetchCartItems, removeCartItem } = useCartStore()
