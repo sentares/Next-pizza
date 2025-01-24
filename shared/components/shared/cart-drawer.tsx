@@ -50,7 +50,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 						!totalAmount && 'justify-center'
 					)}
 				>
-					<SheetTitle>Корзина</SheetTitle>
+					<SheetTitle></SheetTitle>
 
 					{totalAmount > 0 && (
 						<SheetHeader>
