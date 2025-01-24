@@ -1,12 +1,11 @@
 'use client'
 
-import { Ingredient, ProductItem } from '@prisma/client'
-import React from 'react'
-
 import { PizzaSize, PizzaType, pizzaTypes } from '@/shared/constants/pizza'
 import { usePizzaOptions } from '@/shared/hooks'
 import { getPizzaDetails } from '@/shared/lib'
 import { cn } from '@/shared/lib/utils'
+import { Ingredient, ProductItem } from '@prisma/client'
+import React from 'react'
 import { Button } from '../ui'
 import { GroupVariants } from './group-variants'
 import { IngredientItem } from './ingredient-item'
@@ -96,7 +95,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 				</div>
 
 				<Button
-					// loading={loading}
+					loading={loading}
 					onClick={handleClickAdd}
 					className='h-[55px] px-10 text-base rounded-md w-full mt-10'
 				>

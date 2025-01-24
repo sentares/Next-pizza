@@ -16,7 +16,7 @@ export const ProductForm: React.FC<Props> = ({
 	product,
 	onSubmit: _onSubmit,
 }) => {
-	const addCartItem = useCartStore(state => state.addCartItem)
+	const { addCartItem, loading } = useCartStore()
 
 	const firstItem = product.items[0]
 	const isPizzaForm = Boolean(firstItem.pizzaType)
@@ -44,7 +44,7 @@ export const ProductForm: React.FC<Props> = ({
 				ingredients={product.ingredients}
 				items={product.items}
 				onSubmit={onSubmit}
-				// loading={loading}
+				loading={loading}
 			/>
 		)
 	}
@@ -55,7 +55,7 @@ export const ProductForm: React.FC<Props> = ({
 			name={product.name}
 			onSubmit={onSubmit}
 			price={firstItem.price}
-			// loading={loading}
+			loading={loading}
 		/>
 	)
 }
