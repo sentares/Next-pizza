@@ -5,7 +5,7 @@ import React from 'react'
 import { ChoosePizzaForm } from './choose-pizza-form'
 import { ChooseProductForm } from './choose-product-form'
 import { useCartStore } from '@/app/store'
-// import toast from 'react-hot-toast'
+import toast from 'react-hot-toast'
 
 interface Props {
 	product: ProductWithRelations
@@ -28,10 +28,10 @@ export const ProductForm: React.FC<Props> = ({
 				productItemId: itemId,
 				ingredients,
 			})
-			// toast.success(product.name + ' добавлена в корзину')
+			toast.success(product.name + ' добавлена в корзину')
 			_onSubmit?.()
 		} catch (err) {
-			// toast.error('Не удалось добавить товар в корзину')
+			toast.error('Не удалось добавить товар в корзину')
 			console.error(err)
 		}
 	}
