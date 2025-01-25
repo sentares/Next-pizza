@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(req: NextRequest) {
 	try {
-		const token = req.cookies.get('token')?.value
+		const token = req.cookies.get('cartToken')?.value
 
 		if (!token) {
 			return NextResponse.json({ totalAmount: 0, items: [] })
